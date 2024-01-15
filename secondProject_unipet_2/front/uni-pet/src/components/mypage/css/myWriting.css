@@ -1,0 +1,42 @@
+.wr_table {
+    width: 100%;
+}
+
+#wr_page {
+    margin-top: 40px;
+    margin-bottom: 100px;
+}
+
+th, .tb_title, .tb_num, .tb_date {
+    text-align: center;
+}
+
+.tb_title {
+    max-width: 500px;
+    min-width: 500px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.no_tb {
+    text-align: center;
+}
+
+.title_link {
+    cursor: pointer;
+}
+
+.table>:not(caption)>*>*[data-v-b179ea8b] {
+    border-bottom: thin solid lightgrey;
+    text-align: center;
+}
+
+.title_link[data-v-b179ea8b], #pagination[data-v-b179ea8b] {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+tr[data-v-b179ea8b]:hover {
+    background-color: #f1f1f1;
+}

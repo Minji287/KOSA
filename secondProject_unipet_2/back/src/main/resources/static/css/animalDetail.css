@@ -1,0 +1,71 @@
+.all
+{
+    margin: 0 20%;
+}
+.pet-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 100px 0;
+}
+.pet-info img {
+    max-width: 1000px;
+    display: flex;
+}
+
+.pet-details{
+    margin: 10px 10px 10px 10px;
+    padding: 10px 10px ;
+}
+
+.pet-details1{
+    margin: 10px;
+    padding: 10px 30px 10px 30px;
+}
+th.theader {
+    background-color: #343a40;
+    border-color : black;
+    border-style : solid;
+    color : white;
+    padding-left: 20px;
+}
+td.theader {
+    background-color: #343a40;
+    border-color : black; border-style : solid;
+    color : white;
+    padding-left: 20px;
+
+}
+
+td.tbot{
+    border-color : black; border-style : solid;
+
+}
+th.tbot{
+    border-color : black; border-style : solid;
+
+}
+
+.table {
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #343a40;
+    margin-bottom : 30px;
+    box-shadow: 0 3px 10px rgb(0, 0, 0, 0.2);
+}
+h2{
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
+
+#map {
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    height: 500px;
+    margin: 50px auto;
+}
+td {
+    padding: 20px 40px;  /* 상하 20px, 좌우 40px 여백 */
+    /* 필요한 경우 기존의 스타일들... */
+}

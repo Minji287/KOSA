@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout/default_layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Animal List</title>
+    <link rel="stylesheet" th:href="@{/css/animalList.css}"/>
+</head>
+<th:block layout:fragment="content">
+    <body>
+    <div th:replace="/fragments/topBackground.html :: topBgFragment(imgName='List')"></div>
+
+    <div id="card_container" class="card-deck">
+        <div th:each="animal : ${animalList}" class="card" style="width: 18rem;">
+            <a th:href="@{'/animalDetail/' + ${animal.imageId} + '?careAddr=' + ${animal.careAddr}}">
+                <img id="animalList_img" th:src="${animal.popfile}" class="card-img-top" alt="Animal Image">
+            </a>
+            <div class="card-body">
+                <h5 th:text="${animal.noticeNo}" class="card-title"></h5>
+                <p th:text="${animal.kindCd}" class="card-text"></p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item" th:text="${animal.processState}"></li>
+                <li class="list-group-item" th:text="${animal.careNm}"></li>
+                <li class="list-group-item" th:text="${animal.happenPlace}"></li>
+                <li class="list-group-item" th:text="${animal.specialMark}"></li>
+            </ul>
+        </div>
+    </div>
+
+    <div>
+        <ul class="pagination">
+            <li th:if="${animalList.hasPrevious()}"><a th:href="@{/animalList(page=${animalList.number - 1}, size=${animalList.size})}">이전</a></li>
+            <li th:each="pageNum : ${#numbers.sequence(0, animalList.totalPages - 1)}" th:classappend="${pageNum == animalList.number} ? 'active'">
+                <a th:href="@{/animalList(page=${pageNum}, size=${animalList.size})}" th:text="${pageNum + 1}">1</a>
+            </li>
+            <li th:if="${animalList.hasNext()}"><a th:href="@{/animalList(page=${animalList.number + 1}, size=${animalList.size})}">다음</a></li>
+        </ul>
+    </div>
+
+    </body>
+</th:block>
+</html>

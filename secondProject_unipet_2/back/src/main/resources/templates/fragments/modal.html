@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<body>
+<th:block th:fragment="modalFragment(message)">
+    <head>
+        <link rel="stylesheet" th:href="@{/css/modal.css}"/>
+    </head>
+    <script defer src="/js/modal.js"></script>
+    <div class="black_bg" th:if="${message}"></div>
+    <div class="alert" th:if="${message}">
+        <p th:text="${message}"></p>
+        <button class="alert_btn">확인</button>
+    </div>
+</th:block>
+</body>
+</html>

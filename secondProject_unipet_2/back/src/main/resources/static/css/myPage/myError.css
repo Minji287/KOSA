@@ -1,0 +1,21 @@
+.errorinfo {
+    text-align: center;
+}
+
+.error_msg {
+    margin: 100px 0;
+}
+
+#home_btn{
+    margin: 50px 0 100px;
+    padding: 8px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    background-color: #222222;
+}
+
+.confirm_withdraw {
+    margin: 100px 0;
+    font-size: x-large;
+}

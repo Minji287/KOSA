@@ -1,0 +1,162 @@
+body {
+  overflow-x: hidden;
+}
+
+.font_size_m {
+  font-size: 18px;
+}
+
+.font_size_s {
+  font-size: 14px;
+}
+
+#height_l {
+  height: 200px;
+  border: 1px solid #d3d3d3;
+}
+.drag_none {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.menu_text {
+  text-decoration: none;
+  color: white;
+  font-weight: 100;
+  transition: 300ms;
+}
+
+.header {
+  font-family: LINESeedKR-Bd;
+  z-index: 100;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+  height: 100px;
+  background-color: rgb(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  transition: 400ms;
+}
+
+.header_wrapper {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.header_container {
+  width: 100%;
+  padding-right: 100px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1500px;
+}
+
+.header_logo {
+  width: 100%;
+}
+
+.header_menu_container {
+  display: flex;
+  font-weight: 700;
+}
+
+.header_menu_container p {
+  margin-right: 60px;
+}
+
+.background_white {
+  background-color: white;
+  transition: 400ms;
+}
+
+.color_black {
+  color: black;
+}
+
+.drop_down_container {
+  background-color: white;
+  position: absolute;
+  top: 100%;
+  left: 0px;
+  width: 100%;
+  display: flex;
+  height: 0px;
+  transition: 400ms;
+  justify-content: center;
+}
+
+.drop_down_wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 390px;
+}
+
+.drop_down_menu_container {
+  position: absolute;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  min-width: 100px;
+  align-items: center;
+}
+
+.drop_down_menu_text {
+  transition: 400ms;
+  cursor: pointer;
+  text-align: center;
+}
+
+.display_none {
+  transition: 1000ms;
+  display: none;
+}
+
+#height_none {
+  top: -200px;
+}
+
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+video {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.sideMenu_name{
+      margin-bottom: 10px;
+}
+
+.right_margin_20{
+       margin-right: 20px;
+}
+
+.weather_container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.header_sideMenu_container{
+  display: flex;
+  align-items: center;
+}

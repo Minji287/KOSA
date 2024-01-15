@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout/default_layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>회원 정보</title>
+    <link rel="stylesheet" th:href="@{/css/myPage/myProfile.css}"/>
+    <link rel="stylesheet" th:href="@{/css/myPage/myPageLayout.css}"/>
+</head>
+<th:block layout:fragment="content">
+    <body>
+    <div th:replace="/fragments/topBackground.html :: topBgFragment(imgName='Mypage')"></div>
+    <div class="middle">
+        <div class="nav_wrapper">
+            <th:block th:insert="/fragments/mypageNav :: navFragment(pageName='1')"></th:block>
+        </div>
+        <div class="con_info">
+            <div class="con_info_wrapper">
+                <div class="con_title">회원 정보</div>
+                <div class="infobox">
+                    <p>이름 </p><span class="con_name" th:text="${me.name}"></span>
+                </div>
+                <div class="infobox">
+                    <p>이메일 </p><a class="con_link" th:text="|${me.email} &gt|" th:href="@{/myemail}"></a>
+                </div>
+                <div class="infobox">
+                    <p>비밀번호 변경</p><a class="con_link" th:href="@{/mypasswd(action='changepwd')}">&gt;</a>
+                </div>
+                <div class="con_bottom"><a class="con_link_bottom" th:href="@{/logout}">로그아웃</a> | <a
+                        class="con_link_bottom" th:href="@{/mypasswd}">회원탈퇴</a></div>
+            </div>
+        </div>
+    </div>
+    </body>
+</th:block>
+</html>

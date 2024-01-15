@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>게시판 네비게이션</title>
+</head>
+<body>
+<div th:fragment="navFragment" class="container_out">
+    <link rel="stylesheet" th:href="@{/css/boardnav.css}"/>
+<!--    <div class="circle_petpic"></div>
+    <div class="container_user_name">
+        <span id="user_name" th:text="${myname}"></span><span>님</span>
+    </div>-->
+    <div class="container_nav">
+        <nav class="nav_flex_column">
+            <a class="nav-link" th:href="@{'/board/list' + 0}"><span class="bnav">공지 게시판</span></a>
+            <a class="nav-link" th:href="@{'/board/list' + 1}"><span class="bnav">나눔 게시판</span></a>
+            <a class="nav-link" th:href="@{'/board/list' + 2}"><span class="bnav">자유 게시판</span></a>
+        </nav>
+    </div>
+</div>
+</body>
+</html>

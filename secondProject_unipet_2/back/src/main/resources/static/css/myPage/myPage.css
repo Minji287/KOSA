@@ -1,0 +1,67 @@
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 60px auto;
+}
+
+.selbox {
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 420px;
+    height: 80px;
+    border-bottom: 2px solid #BEBEBE;
+    margin-bottom: 10px;
+    padding: 0 20px;
+}
+
+.my_icon {
+    width: 45px;
+    height: 40px;
+}
+
+.my_icon img {
+    width: 100%;
+    height: 100%;
+}
+
+.selbox span {
+    line-height: 80px;
+    margin-right: 20px;
+}
+
+.selbox:hover {
+    background: #D3D3D3;
+    color: white;
+}
+
+.selbox a {
+    text-decoration: none;
+    color: black; /* 버튼 텍스트 색상 */
+}
+
+.selbox1:hover img {
+    content: url('/img/mypage/me_hover.png');
+}
+
+.selbox2:hover img {
+    content: url('/img/mypage/paw_hover.png');
+}
+
+.selbox3:hover img {
+    content: url('/img/mypage/writing_hover.png');
+}
+
+.selbox4:hover img {
+    content: url('/img/mypage/share_hover.png');
+}
+
+.selbox5:hover img {
+    content: url('/img/mypage/heart_hover.png');
+}
+

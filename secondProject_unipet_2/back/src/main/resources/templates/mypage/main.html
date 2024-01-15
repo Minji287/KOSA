@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout/default_layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>마이페이지</title>
+    <link rel="stylesheet" th:href="@{/css/myPage/myPage.css}"/>
+</head>
+<th:block layout:fragment="content">
+<body>
+<div th:replace="/fragments/topBackground.html :: topBgFragment(imgName='Mypage')"></div>
+    <div class="menu">
+        <button class="selbox selbox1" onclick="window.location.href='/myprofile'">
+            <img class="my_icon" th:src="@{/img/mypage/me.png}" alt="회원 정보">
+            <span>회원 정보</span>
+        </button>
+        <button class="selbox selbox2" onclick="window.location.href='/mypet'">
+            <img class="my_icon" th:src="@{/img/mypage/paw.png}" alt="나의 펫">
+            <span>나의 펫</span>
+        </button>
+        <button class="selbox selbox3" onclick="window.location.href='/mywriting'">
+            <img class="my_icon" th:src="@{/img/mypage/writing.png}" alt="나의 게시글">
+            <span>나의 게시글</span>
+        </button>
+        <button class="selbox selbox4" onclick="window.location.href='/myshare'">
+            <img class="my_icon" th:src="@{/img/mypage/share.png}" alt="나눔 물품">
+            <span>나눔 물품</span>
+        </button>
+        <button class="selbox selbox5" onclick="window.location.href='/mysharelikes'">
+            <img class="my_icon" th:src="@{/img/mypage/heart.png}" alt="나눔 좋아요">
+            <span>나눔 좋아요</span>
+        </button>
+    </div>
+</body>
+</th:block>
+</html>

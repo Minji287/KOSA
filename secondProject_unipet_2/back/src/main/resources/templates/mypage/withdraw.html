@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout/default_layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>회원탈퇴 완료</title>
+    <link rel="stylesheet" th:href="@{/css/myPage/myPageLayout.css}"/>
+    <link rel="stylesheet" th:href="@{/css/myPage/myError.css}"/>
+</head>
+<th:block layout:fragment="content">
+    <body>
+    <div class="errorinfo">
+        <div th:replace="/fragments/topBackground.html :: topBgFragment(imgName='Mypage')"></div>
+        <div th:replace="/fragments/modal.html :: modalFragment(message=${message})"></div>
+        <div class="confirm_withdraw">회원탈퇴 완료</div>
+        <p>그동안 UNI PET을 이용해주셔서 감사합니다.</p>
+        <button id="home_btn" onclick="window.location.href='/'">메인페이지로</button>
+    </div>
+    </body>
+</th:block>
+</html>

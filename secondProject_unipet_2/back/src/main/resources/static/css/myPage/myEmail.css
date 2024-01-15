@@ -1,0 +1,63 @@
+.my_email_container{
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.change_email_container{
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.change_eamil_container_wrapper{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.after_change{
+    margin-bottom: 10px;
+}
+
+.con_email{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.new_email{
+    width: 60%;
+}
+
+#emailSelect{
+    width: 40%;
+}
+
+ #e_btn{
+    margin-top: 30px;
+     width: 30%;
+     border-radius: 8px;
+     border: none;
+     padding: 8px;
+     background: #222222;
+     color: white;
+}
+
+#cancelButton{
+    position: absolute;
+    left: 100%;
+    padding: 8px;
+    background: #222222;
+    color: white;
+    width: 60px;
+    margin-left: 10px;
+    border-radius: 8px;
+    font-size: 12px;
+}
+
+#doubleCheckPass {
+    margin-top: 15px;
+}

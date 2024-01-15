@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout/default_layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>비밀번호 변경</title>
+    <link rel="stylesheet" th:href="@{/css/myPage/myEmail.css}"/>
+    <link rel="stylesheet" th:href="@{/css/myPage/myPageLayout.css}"/>
+</head>
+<th:block layout:fragment="content">
+<body>
+<div th:replace="/fragments/topBackground.html :: topBgFragment(imgName='mypage')"></div>
+<div class="middle">
+    <aside class="asNav" th:insert="/fragments/mypageNav :: navFragment(pageName='0')"></aside>
+    <div class="con_info">
+        <div class="con_info_wrapper">
+            <div class="con_title">비밀번호 변경</div>
+                <form method="post" th:action="@{/passchange}" id="confirm_change">
+                    <div class="infobox">
+                        <p class="after_change">변경 비밀번호 </p><input type="password" class="customInput" name="changedPass">
+                    </div>
+                    <div class="infobox" id="doubleCheckPass">
+                        <p class="after_change">변경 비밀번호 확인 </p><input type="password" class="customInput" name="changedPassCheck">
+                    </div>
+                </form>
+            <button type="submit" form="confirm_change" id="e_btn">확인</button>
+        </div>
+    </div>
+</div>
+</body>
+</th:block>
+</html>

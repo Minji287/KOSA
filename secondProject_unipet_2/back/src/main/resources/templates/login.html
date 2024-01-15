@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org/"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="layout/default_layout"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/css/sign.css}" />
+  </head>
+  <th:block layout:fragment="content">
+    <body>
+    <div th:replace="/fragments/modal.html :: modalFragment(message=${message})"></div>
+      <div
+        th:replace="/fragments/topBackground.html :: topBgFragment(imgName='Login')"
+      ></div>
+      <section class="sign_main_container">
+        <h1>로그인</h1>
+        <form method="post" action="/login">
+          <div class="info_container">
+            <label class="input_lable_text" for="id">아이디</label>
+            <input class="inputTag" id="id" type="text" name="id" />
+            <label class="input_lable_text" for="password">비밀번호</label>
+            <input class="inputTag" id="password" type="password" name="password" />
+            <div class="go_signup_text_container margin_bottom_50">
+              <a href="/signup">회원가입</a>
+            </div>
+            <button class="sign_btn">로그인</button>
+          </div>
+        </form>
+      </section>
+    </body>
+  </th:block>
+</html>

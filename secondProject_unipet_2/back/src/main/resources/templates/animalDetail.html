@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout/default_layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Animal Detail</title>
+    <link rel="stylesheet" th:href="@{/css/animalDetail.css}"/>
+    <script type="javascript" src="/js/config.js"></script>
+
+</head>
+<th:block layout:fragment="content">
+
+    <div th:replace="/fragments/topBackground.html :: topBgFragment(imgName='List')"></div>
+    <body>
+
+    <div class="all">
+        <main>
+            <div class="pet-info">
+                <img th:src="${animal.popfile}" alt="Animal Image" width="600" height="400">
+            </div>
+            <div class="pet-details">
+                <h2><span th:text="${animal.kindCd}"></span></h2>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th class="theader" scope="col">동물번호</th>
+                        <th class="tbot" scope="col"><span th:text="${animal.desertionNo}"></span></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th class="theader" scope="row">관리번호</th>
+                        <td class="tbot"><span th:text="${animal.noticeNo}"></span></td>
+                    </tr>
+                    <tr>
+                        <th class="theader" scope="row">입소날짜</th>
+                        <td class="tbot"><span th:text="${animal.happenDt}"></span></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th class="theader" scope="col">색상</th>
+                        <th class="tbot" scope="col"><span th:text="${animal.colorCd}"></span></th>
+                        <th class="theader" scope="col">성별</th>
+                        <th class="tbot" scope="col"><span th:text="${animal.sexCd}"></span></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th class="theader" scope="row">나이</th>
+                        <td><span th:text="${animal.age}"></span></td>
+                        <td class="theader">체중</td>
+                        <td><span th:text="${animal.weight}"></span></td>
+                    </tr>
+                    <tr>
+                        <th class="theader" scope="row">중성화여부</th>
+                        <td><span th:text="${animal.neuterYn}"></span></td>
+                        <td class="theader">보호기간</td>
+                        <td><span th:text="${animal.noticeSdt}"></span> - <span th:text="${animal.noticeEdt}"></span>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </main>
+        <section>
+            <div class="pet-details1">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th class="theader" scope="col">발견장소</th>
+                    <tbody>
+                    <tr>
+                        <th class="tbot" scope="row"><span th:text="${animal.happenPlace}"></span></th>
+                    </tbody>
+                </table>
+            </div>
+            <div class="pet-details1">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th class="theader" scope="col">특징</th>
+                    <tbody>
+                    <tr>
+                        <th class="tbot" scope="row"><span th:text="${animal.specialMark}"></span></th>
+                    </tbody>
+                </table>
+            </div>
+            <div class="pet-details1">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th class="theader" scope="col">보호센터명</th>
+                        <th scope="col"><span th:text="${animal.careNm}"></span></th>
+                        <th class="theader" scope="col">보호소 전화번호</th>
+                        <th scope="col"><span th:text="${animal.careTel}"></span></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th class="theader" scope="row">보호장소</th>
+                        <td><span th:text="${animal.careAddr}"></span></td>
+                        <td class="theader">유기장소</td>
+                        <td><span th:text="${animal.happenPlace}"></span></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="map"></div>
+        </section>
+    </div>
+    <script type="text/javascript" th:src="${API_KEY}"></script>
+    <script type="text/javascript">
+
+        var queryString = window.location.search;
+        var urlParams = new URLSearchParams(queryString);
+        var animalCareAddr = urlParams.get('careAddr');
+
+        var mapContainer = document.getElementById('map'); // 지도를 표시할 div
+        var mapOption = {
+            center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+            level: 3 // 지도의 확대 레벨
+        };
+
+        // 지도를 생성합니다
+        var map = new kakao.maps.Map(mapContainer, mapOption);
+
+        // 주소-좌표 변환 객체를 생성합니다
+        var geocoder = new kakao.maps.services.Geocoder();
+
+        // animalCareAddr 주소를 변환합니다
+        geocoder.addressSearch(animalCareAddr, function (result, status) {
+            if (status === kakao.maps.services.Status.OK) {
+                var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+                // 결과값으로 받은 위치를 마커로 표시합니다
+                var marker = new kakao.maps.Marker({
+                    map: map,
+                    position: coords
+                });
+
+                // 인포윈도우로 장소에 대한 설명을 표시합니다
+                var infowindow = new kakao.maps.InfoWindow({
+                    content: '<div style="width:150px;text-align:center;padding:6px 0;">보호소 위치</div>'
+                });
+                infowindow.open(map, marker);
+
+                // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+                map.setCenter(coords);
+            }
+        });
+    </script>
+
+    </body>
+</th:block>
+</html>
