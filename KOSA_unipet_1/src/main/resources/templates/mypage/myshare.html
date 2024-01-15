@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout/default_layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>나의 나눔 물품</title>
+    <link rel="stylesheet" th:href="@{/css/myPage/myShare.css}"/>
+    <link rel="stylesheet" th:href="@{/css/myPage/myPageLayout.css}"/>
+    <script defer src="/js/myshare.js"></script>
+</head>
+<th:block layout:fragment="content">
+    <body>
+    <div th:replace="/fragments/topBackground.html :: topBgFragment(imgName='Mypage')"></div>
+    <div class="middle">
+        <div class="nav_wrapper">
+            <th:block th:insert="/fragments/mypageNav :: navFragment(pageName='4')"></th:block>
+        </div>
+        <div class="con_info">
+            <div class="con_info_wrapper">
+                <div class="con_title">나눔 물품</div>
+                    <div class="cardbox">
+                        <th:block th:if="!${share.isEmpty()}">
+                            <div th:each="item : ${share}" class="sharecard">
+                                <div class="card mb-3">
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <img th:src="${item.img_path != null} ? @{${item.img_path}} : @{/img/mypage/default-image.png}" class="img-fluid rounded-start" id="pic" alt="...">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <a id="card_atag" th:href="@{/board/content(board_no=${item.board_no})}">
+                                                    <h5 class="card-title" th:text="${item.title}"></h5>
+                                                    <p class="card-text" th:text="${item.content}"></p>
+                                                    <p class="card-text" th:text="${item.posting_date}"><small
+                                                            class="text-muted"></small></p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </th:block>
+                    </div>
+                <th:block th:unless="!${share.isEmpty()}">
+                    <div>나눔한 항목이 존재하지 않습니다.</div>
+                </th:block>
+                <div>
+                    <button id="load-more">더 보기</button>
+                </div>
+                <th:block th:unless="${share}">
+                    <div class="container" id="noItem">
+                        <h5>나눔한 항목이 존재하지 않습니다.</h5>
+                    </div>
+                </th:block>
+            </div>
+        </div>
+    </div>
+    </body>
+</th:block>
+</html>

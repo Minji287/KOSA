@@ -1,0 +1,16 @@
+.div_withdraw {
+    text-align: center;
+}
+
+.title {
+    margin: 100px 0 150px;
+    font-size: larger;
+    text-decoration-color: #BEBEBE;
+    text-decoration: underline;
+    text-underline-position: under;
+    text-decoration-thickness: 1px;
+}
+
+#home_btn {
+    margin: 50px 0 150px;
+}

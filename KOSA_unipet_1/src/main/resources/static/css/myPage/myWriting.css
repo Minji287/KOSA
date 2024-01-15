@@ -1,0 +1,59 @@
+.wr_table {
+    width: 100%;
+}
+
+#wr_page {
+    margin-top: 40px;
+    margin-bottom: 100px;
+}
+
+th, .tb_title, .tb_num, .tb_date {
+    text-align: center;
+}
+
+.tb_title {
+    max-width: 500px;
+    min-width: 500px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.no_tb {
+    text-align: center;
+}
+
+#items {
+    width: 700px;
+    height: 400px;
+    margin-bottom: 120px;
+}
+
+#pagination {
+    position: fixed;
+    bottom: 0;
+    padding: 10px;
+    margin-bottom: 50px;
+}
+
+/* 페이지네이션의 배경색과 활성 페이지의 배경색 변경 */
+.page-link {
+  color: #000;
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+.page-item.active .page-link {
+ z-index: 1;
+ color: #555;
+ font-weight:bold;
+ background-color: #f1f1f1;
+ border-color: #ccc;
+
+}
+
+.page-link:focus, .page-link:hover {
+  color: #000;
+  background-color: #fafafa;
+  border-color: #ccc;
+}

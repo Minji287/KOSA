@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout/default_layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>마이페이지</title>
+    <link rel="stylesheet" th:href="@{/css/myPage/myError.css}"/>
+</head>
+<th:block layout:fragment="content">
+    <body>
+        <div class="errorinfo">
+            <div th:replace="/fragments/topBackground.html :: topBgFragment(imgName='mypage')"></div>
+            <div th:replace="/fragments/modal.html :: modalFragment(message=${message})"></div>
+                <div class="error_msg" th:text="${message}"></div>
+                <button id="home_btn" onclick="window.location.href='/mypage'">마이페이지 홈으로</button>
+        </div>
+    </body>
+</th:block>
+</html>

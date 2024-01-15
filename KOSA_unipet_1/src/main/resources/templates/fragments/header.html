@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Document</title>
+</head>
+<body>
+<th:block th:fragment="headerFragment">
+    <script defer src="/js/apikey.js"></script>
+    <script defer src='/js/header.js'></script>
+    <script defer src="/js/weather.js"></script>
+    <header class="header">
+        <div class="header_wrapper">
+            <div class="header_container">
+                <a href="/">
+                    <img
+                            class="header_logo"
+                            src='/image/main_logo.png'
+                            alt="main_logo"
+                    />
+                </a>
+                <div class="header_menu_container font_size_m drag_none">
+                    <p class="menu_text">공고 리스트</p>
+                    <p class="menu_text">커뮤니티</p>
+                    <p class="menu_text">편의기능</p>
+                </div>
+                <th:block th:if="${session.userId == null}">
+                    <div class="header_sideMenu_container font_size_s drag_none">
+                        <a class="menu_text right_margin_20" href="/login">Login</a>
+                        <div class="weather_container">
+                            <a class="menu_text weather_icon"></a>
+                            <a class="menu_text weather_temp"></a>
+                        </div>
+                    </div>
+                </th:block>
+                <th:block th:if="${session.userId != null}">
+                    <div class="header_sideMenu_container font_size_s drag_none">
+                        <a class="menu_text right_margin_20" href="/mypage">My Page</a>
+                        <a class="menu_text right_margin_20" href="/logout">Log Out</a>
+                        <div class="weather_container">
+                            <a class="menu_text weather_icon"></a>
+                            <a class="menu_text weather_temp"></a>
+                        </div>
+                    </div>
+                </th:block>
+            </div>
+            <div class="drop_down_container">
+                <div class="drop_down_wrapper">
+                    <div class="drop_down_menu_container">
+                        <a href="/animalList" class="drop_down_menu_text display_none">유기동물 리스트</a>
+                    </div>
+                    <div class="drop_down_menu_container">
+                        <!--<a class="drop_down_menu_text display_none" th:href="@{'/board/ntlist?boardId=' + 0}">공지 게시판</a>-->
+                        <a class="drop_down_menu_text display_none" th:href="@{'/board/list' + 0}">공지 게시판</a>
+                        <a class="drop_down_menu_text display_none" th:href="@{'/board/list' + 1}">나눔 게시판</a>
+                        <a class="drop_down_menu_text display_none" th:href="@{'/board/list' + 2}">자유 게시판</a>
+                    </div>
+                    <div class="drop_down_menu_container">
+                        <a href="/hospinfo" class="drop_down_menu_text display_none">동물병원 위치</a>
+                        <a href="/trailInfo" class="drop_down_menu_text display_none">산책로</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+</th:block>
+</body>
+</html>

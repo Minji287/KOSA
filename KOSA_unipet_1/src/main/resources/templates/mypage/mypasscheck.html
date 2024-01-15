@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout/default_layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>비밀번호 확인</title>
+    <link rel="stylesheet" th:href="@{/css/myPage/myPageLayout.css}"/>
+    <link rel="stylesheet" th:href="@{/css/myPage/myPasscheck.css}"/>
+</head>
+<th:block layout:fragment="content">
+<body>
+<div th:replace="/fragments/topBackground.html :: topBgFragment(imgName='Mypage')"></div>
+<div class="middle">
+    <div class="nav_wrapper">
+        <th:block th:insert="/fragments/mypageNav :: navFragment(pageName='1')"></th:block>
+    </div>
+    <div class="con_info">
+        <div class="con_info_wrapper">
+            <div class="con_title" th:if="${action == 'changepwd'}">비밀번호 변경</div>
+            <div class="con_title" th:unless="${action == 'changepwd'}">회원탈퇴</div>
+            <form method="post" th:action="@{'/passcheck?action=' + ${action}}" id="confirm_change">
+                <div class="infobox">
+                    <p class="passwdcheck">비밀번호 확인 </p><input type="password" class="customInput" name="currentPass">
+                </div>
+            </form>
+            <button type="submit" form="confirm_change" id="e_btn">확인</button>
+        </div>
+    </div>
+</div>
+</body>
+</th:block>
+</html>

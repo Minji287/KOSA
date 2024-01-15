@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout/default_layout">
+<head>
+    <meta charset="UTF-8">
+    <title>마이펫</title>
+    <link rel="stylesheet" th:href="@{/css/myPage/myPet.css}"/>
+    <link rel="stylesheet" th:href="@{/css/myPage/myPageLayout.css}"/>
+</head>
+<th:block layout:fragment="content">
+    <body>
+    <div th:replace="/fragments/topBackground.html :: topBgFragment(imgName='Mypage')"></div>
+    <div class="middle">
+        <div class="nav_wrapper">
+            <th:block th:insert="/fragments/mypageNav :: navFragment(pageName='2')"></th:block>
+        </div>
+        <div class="con_info">
+            <div class="con_info_wrapper">
+                <div class="con_title">나의 펫</div>
+                <div class="menu">
+                    <th:block th:if="${mypet}">
+                        <img class="circle_pet" th:if="${mypet.pet_pic != null}" th:src="@{|${mypet.pet_pic}|}"
+                             alt="Pet Image"/>
+                        <img class="circle_pet" th:unless="${mypet.pet_pic != null}"
+                             th:src="@{/img/mypage/default-image.png}" alt="No Image"/>
+                        <div class="pet_details">
+                            <div class="infobox">
+                                <span>이름 </span><span class="con_text" th:text="${mypet.pet_name}"></span>
+                            </div>
+                            <div class="infobox">
+                                <span>생일 </span><span class="con_text"
+                                                      th:text="|${#temporals.format(mypet.pet_birth, 'yyyy년 M월 d일')}${age}|"></span>
+                            </div>
+                            <div class="infobox">
+                                <span>성별 </span><span class="con_text"
+                                                      th:text="${mypet.pet_gender == 'm' ? '남아' : '여아'}"></span>
+                            </div>
+                            <div class="infobox">
+                                <span>종류 </span><span class="con_text" th:text="${mypet.pet_kind}"></span>
+                            </div>
+                            <div class="infobox">
+                                <span>중성화 여부 </span><span class="con_text"
+                                                          th:text="${mypet.pet_neuter == 'y' ? '유' : '무'}"></span>
+                            </div>
+                            <div class="infobox">
+                                <span>색상 </span><span class="con_text" th:text="${mypet.pet_color}"></span>
+                            </div>
+                            <div class="infobox">
+                                <th:block th:if="${mypet.pet_weight != null}">
+                                    <span>체중 </span><span class="con_text" th:text="|${mypet.pet_weight} kg|"></span>
+                                </th:block>
+                                <th:block th:unless="${mypet.pet_weight != null}">
+                                    <span>체중 </span><span class="con_text" th:unless="${mypet.pet_weight != null}"
+                                                          th:text="0 kg"></span>
+                                </th:block>
+                            </div>
+                            <div class="mypet_text_container">
+                                <span class="memo_title_text">메모 </span>
+                                <span class="con_text" th:text="${mypet.pet_trait}"></span>
+                            </div>
+                        </div>
+                        <button class="change_btn" onclick="window.location.href='/mypetchange'">수정</button>
+                    </th:block>
+                    <th:block th:unless="${mypet}">
+                        <div class="none_pet_container" th:if="${nopet}">
+                            <p th:text="${nopet}"></p>
+                            <button class="change_btn" onclick="window.location.href='/myaddpet'">등록하러 가기</button>
+                        </div>
+                    </th:block>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+</th:block>
+</html>

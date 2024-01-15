@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout/default_layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>이메일 변경</title>
+    <link rel="stylesheet" th:href="@{/css/myPage/myPageLayout.css}"/>
+    <link rel="stylesheet" th:href="@{/css/myPage/myEmail.css}"/>
+    <script defer src="/js/myemail.js"></script>
+</head>
+<th:block layout:fragment="content">
+    <body>
+    <div th:replace="/fragments/topBackground.html :: topBgFragment(imgName='Mypage')"></div>
+    <div class="middle">
+        <div class="nav_wrapper">
+            <th:block th:insert="/fragments/mypageNav :: navFragment(pageName='1')"></th:block>
+        </div>
+        <div class="con_info">
+            <div class="con_info_wrapper">
+                <div class="con_title">이메일 변경</div>
+                <div class="my_email_container">
+                    <p th:text="'기존 이메일: '"></p>
+                    <p th:text="${me.email}"></p>
+                </div>
+                <div class="change_email_container">
+                    <form method="post" action="/changeemail" id="confirm_change">
+                        <div class="change_eamil_container_wrapper">
+                            <div class="after_change" th:text="'변경 후 이메일 '"></div>
+                            <div class="con_email">
+                                <input class="new_email" type="text" name="email" id="customEmailField">
+                                &nbsp;&#64;&nbsp;
+                                <select name="domain" id="emailSelect" class="form-select form-select-sm"
+                                        aria-label=".form-select-sm example">
+                                    <option value="gmail.com">gmail.com</option>
+                                    <option value="naver.com">naver.com</option>
+                                    <option value="daum.net">daum.net</option>
+                                    <option value="kakao.com">kakao.com</option>
+                                    <option value="custom">직접입력</option>
+                                </select>
+                                <input type="text" class="customInput" style="display: none;">
+                                <button id="cancelButton" style="display: none;">취소</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                    <button type="submit" form="confirm_change" id="e_btn">확인</button>
+            </div>
+        </div>
+    </div>
+    </body>
+</th:block>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout/default_layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>나의 나눔 물품</title>
+    <link rel="stylesheet" th:href="@{/css/myPage/myShareLikes.css}"/>
+    <link rel="stylesheet" th:href="@{/css/myPage/myPageLayout.css}"/>
+    <script defer src="/js/mysharelikes.js"></script>
+</head>
+<th:block layout:fragment="content">
+    <body>
+    <div th:replace="/fragments/topBackground.html :: topBgFragment(imgName='Mypage')"></div>
+    <div class="middle">
+        <div class="nav_wrapper">
+            <th:block th:insert="/fragments/mypageNav :: navFragment(pageName='5')"></th:block>
+        </div>
+        <div class="con_info">
+            <div class="con_info_wrapper">
+                <div class="con_title">나눔 좋아요</div>
+                <th:block th:if="!${likes.isEmpty()}">
+                    <div class="cardbox">
+                        <div th:each="item : ${likes}" class="likecard">
+                            <a th:href="@{/board/content(board_no=${item.board_no})}">
+                                <img th:src="${item.img_path != null} ? @{${item.img_path}} : @{/img/mypage/default-image.png}" class="card-img-top" id="pic" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title" th:text="${item.title}"></h5>
+                                    <p class="card-text"
+                                       th:text="${item.content.length() > 50 ? item.content.subSequence(0, 50) + '...' : item.content}"></p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted" th:text="${item.posting_date}"></small>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div>
+                        <button id="load-more">더 보기</button>
+                    </div>
+                </th:block>
+                <th:block th:unless="!${likes.isEmpty()}">
+                     <div>좋아요를 누른 나눔글이 존재하지 않습니다.</div>
+                </th:block>
+            </div>
+        </div>
+    </div>
+    </body>
+</th:block>
+</html>

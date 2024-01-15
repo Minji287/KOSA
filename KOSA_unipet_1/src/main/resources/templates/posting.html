@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout/default_layout">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="/js/summernote/summernote-lite.js"></script>
+    <script src="/js/summernote/lang/summernote-ko-KR.js"></script>
+    <link rel="stylesheet" th:href="@{/css/posting.css}"/>
+    <link rel="stylesheet" th:href="@{/css/summernote/summernote-lite.css}">
+</head>
+<th:block layout:fragment="content">
+    <body>
+    <div th:replace="/fragments/topBackground.html :: topBgFragment(imgName='Board')"></div>
+
+
+    <section class="main_container">
+        <div class="main_wrap flex-column w-75">
+            <form method="post" action="save">
+                <input type="hidden" name="board_id" th:value="${boardId}">
+                <input class="title" type="hidden" name="user_id" th:value="${session.userId}"><br>
+                <p th:text="|😍${session.userId}|"></p><br>
+                <input class="title" type="text" placeholder="제목을 입력해 주세요." name="title" style="width: 30%" required>
+                <div class="form-floating">
+                    <!--<div class="container">-->
+                    <textarea class="form-control" placeholder="Leave a comment here" id="summernote"
+                              name="content" required></textarea>
+                    <!--name="content"-->
+                    <!-- <label for="summernote">내용을 입력하세요.</label>-->
+                    <br>
+                    <button type="submit" class="btn btn-dark btn-lg">글작성</button>
+                </div>
+            </form>
+        </div>
+    </section>
+    <script>
+        $(document).ready(function () {
+            //여기 아래 부분
+            $('#summernote').summernote({
+                height: 600,                 // 에디터 높이
+                minHeight: null,             // 최소 높이
+                maxHeight: null,             // 최대 높이
+                focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
+                lang: "ko-KR",					// 한글 설정
+                placeholder: '내용을 입력하세요.'	//placeholder 설정
+
+            });
+        });
+    </script>
+    </body>
+</th:block>
+</html>

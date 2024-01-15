@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout/default_layout">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/css/sign.css}"/>
+</head>
+<th:block layout:fragment="content">
+<script defer src="/js/signup.js"></script>
+<body>
+<div th:replace="/fragments/modal.html :: modalFragment(message=${message})"></div>
+<div th:replace="/fragments/topBackground.html :: topBgFragment(imgName='Signup')"></div>
+<section class="sign_main_container">
+    <h1>회원가입</h1>
+    <form method="post" action="/signup">
+        <div class="info_container">
+            <label class="input_lable_text" for="id">아아디</label>
+            <input class="inputTag" id="id" type="text" name="user_id"/>
+
+            <label class="input_lable_text" for="password">비밀번호</label>
+            <input class="inputTag" id="password" type="password" name="password"/>
+
+            <label class="input_lable_text" for="rePassword">비밀번호 확인</label>
+            <input class="inputTag" id="rePassword" type="password" name="rePassword"/>
+
+            <label class="input_lable_text" for="email">이메일</label>
+            <input class="inputTag" id="email" type="email" name="email"/>
+
+            <label class="input_lable_text" for="name">이름</label>
+            <input class="inputTag" id="name" type="text" name="name"/>
+        </div>
+
+        <div class="info_container">
+            <h3>나의 펫 정보</h3>
+            <span class="input_lable_text">펫 보유 여부</span>
+            <div class="radio_container">
+                <input id="havePetTrue" type="radio" name="havePet" value="true"/>
+                <label class="margin90" for="havePetTrue">보유</label>
+                <input
+                        id="havePetFalse"
+                        type="radio"
+                        name="havePet"
+                        value="false"
+                        checked="checked"
+                />
+                <label for="havePetFalse">미보유</label>
+            </div>
+
+            <label class="input_lable_text" for="petName">펫 이름 </label>
+            <input class="inputTag disable_toggle" id="petName" type="text" name="petName"/>
+
+            <label class="input_lable_text" for="petBirthday">생일 </label>
+            <input class="inputTag disable_toggle" type="datetime-local" id="petBirthday" name="petBirthday">
+
+            <span class="input_lable_text">암 / 수</span>
+            <div class="radio_container">
+                <input
+                        id="petGenderF"
+                        type="radio"
+                        name="petGender"
+                        value="f"
+                        class="disable_toggle"
+                />
+                <label class="margin90" for="petGenderF">여아</label>
+                <input
+                        id="petGenderW"
+                        type="radio"
+                        name="petGender"
+                        value="m"
+                        class="disable_toggle"
+                />
+                <label for="petGenderW">남아</label>
+            </div>
+
+            <label class="input_lable_text" for="petType">종류</label>
+            <input class="inputTag disable_toggle" id="petType" type="text" name="petType"/>
+
+            <span class="input_lable_text">중성화 여부</span>
+            <div class="radio_container">
+                <input
+                        id="doNeuteringTrue"
+                        type="radio"
+                        name="doNeutering"
+                        value="y"
+                        class="disable_toggle"
+                />
+                <label class="margin90" for="doNeuteringTrue">⭕</label>
+                <input
+                        id="doNeuteringFalse"
+                        type="radio"
+                        name="doNeutering"
+                        value="n"
+                        class="disable_toggle"
+                />
+                <label for="doNeuteringFalse">❌</label>
+            </div>
+
+            <label class="input_lable_text" for="petColor">펫 색상</label>
+            <input class="inputTag disable_toggle" id="petColor" type="text" name="petColor"/>
+
+            <label class="input_lable_text" for="petWeight">펫 몸무게</label>
+            <input class="inputTag disable_toggle" type="number" step="any" id="petWeight" name="petWeight">
+
+            <label class="input_lable_text" for="petChar">펫 특징</label>
+            <textarea
+                    class="textarea_tag disable_toggle"
+                    id="petChar"
+                    name="petChar"
+                    cols="30"
+                    rows="10"
+            ></textarea>
+            <button class="sign_btn">회원가입 전송</button>
+        </div>
+    </form>
+</section>
+</body>
+</th:block>
+</html>

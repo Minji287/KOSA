@@ -1,0 +1,72 @@
+.con_petform{
+    width: 80%;
+    max-width: 600px;
+}
+
+.con_petchangepic{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.con_petchangepic_container{
+    display: flex;
+    justify-content: center;
+}
+
+.image-container {
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
+.circle_petchange {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    object-fit: cover;
+}
+
+.icon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    cursor: pointer;
+}
+
+.petChange_select_container{
+    display: flex;
+    justify-content: space-around;
+}
+
+#select_container2, #select_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.petForm_btn{
+    margin: 10px 0 0 5px;
+    padding: 8px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    background-color: #222222;
+}
+.con_info_wrapper{
+    margin-bottom: 100px;
+}
+
+.btn_container{
+    width: 100%;
+    display: flex;
+    justify-content: right;
+
+}

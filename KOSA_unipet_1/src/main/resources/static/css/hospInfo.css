@@ -1,0 +1,113 @@
+.hospital_dataList_container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hospital_dataList_warpper {
+  width: 85%;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 30% 30% 30%;
+  grid-gap: 20px;
+  padding: 30px;
+}
+
+.hospital_dataList_card {
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  height: 400px;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+}
+
+.hospital_dataList_card img {
+  width: 100%;
+  height: 50%;
+}
+
+.hospital_dataList_text {
+  padding: 8px;
+  height: 50%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+}
+
+.hospital_dataList_maintext {
+  font-size: 20px;
+}
+
+.hospital_dataList_btn {
+  background-color: #008000;
+  padding: 4px;
+  border-radius: 4px;
+  text-align: center;
+  color: white;
+  margin-top: 6px;
+}
+
+.hospital_dataList_head_text {
+  width: 100%;
+  text-align: center;
+  margin: 100px auto;
+  font-size: 40px;
+}
+
+.trail_dataList_warpper {
+  width: 85%;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 45% 45%;
+  grid-gap: 20px;
+  padding: 30px;
+}
+
+.trail_dataList_card {
+  overflow: hidden;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+}
+
+.trail_text_container {
+  width: 45%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 20px;
+}
+
+.trail_title_text {
+  font-size: 20px;
+}
+
+.trail_dataList_img {
+  background-image: url(/image/trail_img.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 45%;
+  height: 100%;
+  border-radius: 8px;
+}
+
+.trail_address {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  line-height: 2;
+}

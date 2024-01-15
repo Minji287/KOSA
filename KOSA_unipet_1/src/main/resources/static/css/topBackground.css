@@ -1,0 +1,18 @@
+.signup_header {
+  font-family: LINESeedKR-Bd;
+  width: 100vw;
+  height: 650px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.signup_header h1 {
+  font-size: 80px;
+  font-weight: bold;
+  color: white;
+  position: absolute;
+  left: 10%;
+  top: 70%;
+}

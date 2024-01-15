@@ -1,0 +1,18 @@
+#card_container{
+    flex-wrap: wrap;
+    align-content: center;
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-gap: 20px;
+    margin: 25px auto;
+    padding: 30px;
+    max-width: 1500px;
+}
+
+#animalList_img{
+    height: 220px;
+    weight: 250px;
+
+}

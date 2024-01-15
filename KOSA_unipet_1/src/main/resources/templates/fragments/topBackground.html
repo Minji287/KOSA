@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+
+    <body>
+    <th:block th:fragment="topBgFragment(imgName)">
+        <head>
+            <link rel="stylesheet" th:href="@{/css/topBackground.css}"/>
+        </head>
+        <section class="signup_header" th:style="'background-image: url(/image/' + ${imgName} + '_bg.jpg)'">
+        <h1 th:text="${imgName}">Signup</h1>
+    </section>
+    </th:block>
+</body>
+</html>

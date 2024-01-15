@@ -1,0 +1,29 @@
+.middle{
+    display: flex;
+}
+
+.nav_wrapper{
+    width: 200px;
+    min-height: 100%;
+}
+
+.con_info{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.con_info_wrapper{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    transform: translateX(-17%);
+    overflow: hidden;
+}
+
+.con_title{
+    margin: 100px 0;
+    font-size: 40px;
+}

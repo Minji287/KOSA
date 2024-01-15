@@ -1,0 +1,81 @@
+.con_petform{
+    width: 80%;
+    max-width: 600px;
+}
+
+.con_petchangepic{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.image-container {
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
+.circle_petadd {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    object-fit: cover;
+}
+
+.icon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    cursor: pointer;
+}
+
+.withoutPic{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.withoutPic_container {
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.petAdd_btn{
+    margin: 10px 0;
+    padding: 8px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    background-color: #222222;
+}
+
+.con_info_wrapper{
+    margin-bottom: 100px;
+}
+
+.input_container_addPet{
+    flex: 7;
+    display: flex;
+    justify-content: center;
+
+}
+
+.withoutPic_container p {
+    flex: 3;
+}
+
+.margin_ri_10{
+    margin-right: 20px;
+}
